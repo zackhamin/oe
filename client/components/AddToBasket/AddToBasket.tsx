@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getIsMobile } from "../../hooks/getIsMobile";
 import numberToPounds from "../../utils/numberToPounds";
 import { Quantity } from "../Quantity/Quantity";
 
@@ -9,6 +10,8 @@ interface AddToBasketProps {
 function AddToBasket({ price }: AddToBasketProps) {
   const [quantityValue, setQuantityValue] = useState(1);
   const [unitPrice, setUnitPrice] = useState(0);
+
+  const { isMobile } = getIsMobile();
 
   useEffect(() => {
     const priceOfSingleUnit = numberToPounds(price);
@@ -26,6 +29,7 @@ function AddToBasket({ price }: AddToBasketProps) {
         display: "flex",
         flexDirection: "column",
         margin: "20px",
+        width: isMobile ? "auto" : "300px",
       }}
     >
       <div
