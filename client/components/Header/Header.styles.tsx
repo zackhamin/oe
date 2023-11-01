@@ -6,7 +6,7 @@ const HeaderContainer = ({ children }) => {
         div {
           display: grid;
           grid-template-columns: 1fr 1fr auto;
-          grid-gap: 20px; /* Add some spacing between columns */
+          grid-gap: 20px;
           align-items: center;
           justify-content: center;
           margin: 10px;

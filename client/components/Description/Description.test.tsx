@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Description } from "./Description"; // Adjust the import path as needed
+import { Description } from "./Description";
 
 describe("Description component", () => {
   it("should render with the provided description", () => {

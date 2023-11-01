@@ -1,7 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { AddToBasket } from "./AddToBasket";
-import { logMissingFieldErrors } from "@apollo/client/core/ObservableQuery";
 
 describe("AddToBasket component", () => {
   it("should render with the provided price and quantity controls", () => {
@@ -11,7 +10,7 @@ describe("AddToBasket component", () => {
     expect(getByText(`£10`)).toBeInTheDocument();
 
     expect(getByRole("button", { name: "+" })).toBeInTheDocument();
-    expect(getByRole("spinbutton")).toBeInTheDocument(); // Input type="number"
+    expect(getByRole("spinbutton")).toBeInTheDocument();
     expect(getByRole("button", { name: "-" })).toBeInTheDocument();
 
     expect(getByText("Add to cart")).toBeInTheDocument();

@@ -1,6 +1,6 @@
-import { ProductResponse } from "../types/productResponse";
+import { AllProducts } from "../types/productResponse";
 
-export const mockProduct: ProductResponse = {
+export const mockProduct: AllProducts = {
   allProducts: [
     {
       name: "Energy saving light bulb",

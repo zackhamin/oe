@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { ProductCard } from "./ProductCard"; // Adjust the import path as needed
-
+import { ProductCard } from "./ProductCard";
 describe("ProductCard component", () => {
   it("should render with the provided props", () => {
     const testProps = {

@@ -1,6 +1,4 @@
-import React from "react";
 import { Product } from "../types/product";
-import { ProductResponse } from "../types/productResponse";
 
 function getTableData(productInfo: Product) {
   const formattedProductData = {
