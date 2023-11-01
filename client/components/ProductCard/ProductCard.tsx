@@ -22,9 +22,9 @@ function ProductCard({ image, title, power, quantity }: ProductCardProps) {
       />
       <div>
         <h1>{title}</h1>
-        <text
+        <span
           style={{ color: "var(--purpleHaze)" }}
-        >{`${power} // Packet of ${quantity}`}</text>
+        >{`${power} // Packet of ${quantity}`}</span>
       </div>
     </div>
   );

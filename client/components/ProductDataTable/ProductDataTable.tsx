@@ -28,4 +28,4 @@ function ProductTable({ productData }) {
   );
 }
 
-export default ProductTable;
+export { ProductTable };

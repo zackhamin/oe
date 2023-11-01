@@ -51,4 +51,4 @@ function AddToBasket({ price }: AddToBasketProps) {
   );
 }
 
-export default AddToBasket;
+export { AddToBasket };

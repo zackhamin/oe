@@ -3,29 +3,23 @@ import { ProductCard } from "../components/ProductCard/ProductCard";
 import productImage from "../public/philips-plumen.jpg";
 import styled from "styled-components";
 
-import AddToBasket from "../components/AddToBasket/AddToBasket";
+import { AddToBasket } from "../components/AddToBasket/AddToBasket";
 
 import { GetServerSideProps } from "next";
 import { getProductdata } from "../utils/getProductData";
 import { ProductResponse } from "../types/productResponse";
 import { Description } from "../components/Description/Description";
-import ProductTable from "../components/ProductDataTable/ProductDataTable";
+import { ProductTable } from "../components/ProductDataTable/ProductDataTable";
+import getTableData from "../utils/getTableData";
 
 interface ProductPageProps {
   product: ProductResponse;
 }
 
 export default function Product({ product }: ProductPageProps) {
-  console.log(product);
-  const productInfo = product.allProducts[0]; // Assuming there's only one product in the array
+  const productInfo = product.allProducts[0];
 
-  const formattedProductData = {
-    Brand: productInfo.brand,
-    "Item Weight": `${productInfo.weight} g`,
-    Dimensions: `H: ${productInfo.height} cm, W: ${productInfo.width} cm`,
-    "Item Model Number": productInfo.model_code,
-    Color: productInfo.colour,
-  };
+  const tableData = getTableData(productInfo);
 
   return (
     <BodyWrapper>
@@ -38,7 +32,7 @@ export default function Product({ product }: ProductPageProps) {
       />
       <AddToBasket price={productInfo.price} />
       <Description description={productInfo.description} />
-      <ProductTable productData={formattedProductData} />
+      <ProductTable productData={tableData} />
     </BodyWrapper>
   );
 }
