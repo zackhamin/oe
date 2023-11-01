@@ -1,6 +1,7 @@
 import Cors from "cors";
 import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
+import { ProductResponse } from "../../types/productResponse";
 
 const getProductData = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -28,8 +29,6 @@ const getProductData = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     }
   `;
-
-  const graphqlEndpoint = "http://localhost:3001/graphql";
 
   try {
     const response = await fetch("http://localhost:3001/graphql", {

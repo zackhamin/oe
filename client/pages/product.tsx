@@ -2,7 +2,7 @@ import productImage from "../public/philips-plumen.jpg";
 
 import { GetServerSideProps } from "next";
 import { getProductdata } from "../utils/getProductData";
-import { ProductResponse } from "../types/productResponse";
+import { AllProducts } from "../types/productResponse";
 
 import getTableData from "../utils/getTableData";
 import {
@@ -14,7 +14,7 @@ import {
 } from "../components";
 
 interface ProductPageProps {
-  product: ProductResponse;
+  product: AllProducts;
 }
 
 export default function Product({ product }: ProductPageProps) {
