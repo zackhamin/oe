@@ -1,28 +1,33 @@
-import { Header } from "../components/Header/Header";
-import { ProductCard } from "../components/ProductCard/ProductCard";
 import productImage from "../public/philips-plumen.jpg";
-import styled from "styled-components";
-
-import { AddToBasket } from "../components/AddToBasket/AddToBasket";
 
 import { GetServerSideProps } from "next";
 import { getProductdata } from "../utils/getProductData";
 import { ProductResponse } from "../types/productResponse";
-import { Description } from "../components/Description/Description";
-import { ProductTable } from "../components/ProductDataTable/ProductDataTable";
+
 import getTableData from "../utils/getTableData";
+import {
+  Header,
+  ProductCard,
+  AddToBasket,
+  Description,
+  ProductTable,
+} from "../components";
 
 interface ProductPageProps {
   product: ProductResponse;
 }
 
 export default function Product({ product }: ProductPageProps) {
+  if (!product.allProducts.length) {
+    return <h1>Sorry, we are having an error finding your product</h1>;
+  }
+
   const productInfo = product.allProducts[0];
 
   const tableData = getTableData(productInfo);
 
   return (
-    <BodyWrapper>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <Header />
       <ProductCard
         image={productImage}
@@ -33,7 +38,7 @@ export default function Product({ product }: ProductPageProps) {
       <AddToBasket price={productInfo.price} />
       <Description description={productInfo.description} />
       <ProductTable productData={tableData} />
-    </BodyWrapper>
+    </div>
   );
 }
 
@@ -48,12 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     console.error(error, "Error fetching data");
 
     return {
-      props: { product: [] },
+      props: { product: { allProducts: [] } },
     };
   }
 };
-
-const BodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;

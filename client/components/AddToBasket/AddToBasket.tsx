@@ -19,8 +19,15 @@ function AddToBasket({ price }: AddToBasketProps) {
   const handleOnAddToCart = () => {
     console.log("added to cart");
   };
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", margin: "20px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "20px",
+      }}
+    >
       <div
         style={{
           display: "flex",
